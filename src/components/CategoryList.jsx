@@ -188,83 +188,86 @@ const CategoryList = () => {
                 <div className="container py-3">
                     <div className="d-flex align-items-center justify-content-between">
                         <h1 className='text-white fw-bold col-4'>{categoryName}</h1>
-                        <div className="d-flex justify-content-around col-8">
-                            <div className="col-6 roadmap ">
+                        <div className="d-flex justify-content-around col-8 ">
+                            <div className="col-6 roadmap position-relative">
                                 <div className="d-flex justify-content-between">
                                     <span className='text-white mt-1'>1 km</span>
                                     <span className='text-white mt-1'>50 km</span>
+                                    <i class="bi bi-geo-alt-fill text-orange position-absolute  end-0" style={{ marginTop:"-33px"}}></i>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="container">
-                <div className="d-flex py-2">
-                    <Link to={'/'} className='text-secondary'>All Categories - </Link>
-                    <span>{categoryName}</span>
-                </div>
-                <div className="d-flex justify-content-between align-items-center py-3">
-                    <h2 className='fw-bold text-theme-primary'>Filter</h2>
-                    <span className='text-theme-primary fw-semibold'>See All <i className="bi bi-arrow-right"></i></span>
-                </div>
-                <div className="row">
-                    {/* Aside panel */}
-                    <div className="col-md-3">
-                        <aside className="bg-light">
-                            <div className="mb-3">
-                                <label className="form-label text-orange mb-4">Sort By</label>
-                                <div className="form-check mb-3">
-                                    <input className="form-check-input" type="radio" name="sort" id="priceLowToHigh" value="priceLowToHigh" onChange={() => setSortType('priceLowToHigh')} />
-                                    <label className="form-check-label" >
-                                        Price: Low to High
-                                    </label>
-                                </div>
-                                <div className="form-check mb-3">
-                                    <input className="form-check-input" type="radio" name="sort" id="priceHighToLow" value="priceHighToLow" onChange={() => setSortType('priceHighToLow')} />
-                                    <label className="form-check-label" >
-                                        Price: High to Low
-                                    </label>
-                                </div>
-                                <div className="form-check mb-3">
-                                    <input className="form-check-input" type="radio" name="sort" id="ratingLowToHigh" value="ratingLowToHigh" onChange={() => setSortType('ratingLowToHigh')} />
-                                    <label className="form-check-label" >
-                                        Rating: Low to High
-                                    </label>
-                                </div>
-                                <div className="form-check mb-3">
-                                    <input className="form-check-input" type="radio" name="sort" id="ratingHighToLow" value="ratingHighToLow" onChange={() => setSortType('ratingHighToLow')} />
-                                    <label className="form-check-label" >
-                                        Rating: High to Low
-                                    </label>
-                                </div>
-                            </div>
-                        </aside>
+            <div className="container-fluid bg-body-secondary">
+                <div className="container">
+                    <div className="d-flex py-2">
+                        <Link to={'/'} className='text-secondary'>All Categories - </Link>
+                        <span>{categoryName}</span>
                     </div>
-                    <div className="col-md-9">
-                        <div className="row">
-                            {/* item listing */}
-                            {sortedItems.map(item => (
-                                <div key={item.id} className="col-md-4 mb-3">
-                                    <div className="card">
-                                        <img src={item.image} alt={item.name} className="card-img-top" style={{ height: '300px', objectFit: 'cover' }}/>
-                                        <div className="card-body">
-                                            <h5 className="card-title text-theme-primary fw-bold">{item.name}</h5>
-                                            <span className='text-secondary'>MRP.</span>
-                                            <p className="card-text text-danger">Rs. {item.price}</p>
-                                            <p className="card-text">Rating: <StarRating rating={item.rating} /></p>
-                                            <div className="d-flex justify-content-between align-items-center">
-                                                <button className="btn bg-theme text-white rounded-0 me-2 w-50">Add to Cart</button>
-                                                <div className="d-flex align-items-center w-50  " style={{border:'2px solid grey'}}>
-                                                    <button className="btn  rounded-0 btn-sm me-2 px-3 fw-bold " onClick={() => handleDecrement(item.id)}>-</button>
-                                                    <span className='px-3'>{cart[item.id] || 1}</span>
-                                                    <button className="btn  rounded-0 btn-sm ms-2 px-3 fw-bold" onClick={() => handleIncrement(item.id)}>+</button>
+                    <div className="d-flex justify-content-between align-items-center py-3">
+                        <h2 className='fw-bold text-theme-primary'>Filter</h2>
+                        <span className='text-theme-primary fw-semibold'>See All <i className="bi bi-arrow-right"></i></span>
+                    </div>
+                    <div className="row ">
+                        {/* Aside panel */}
+                        <div className="col-md-3  ">
+                            <aside className='shadow h-100'>
+                                <div className="mb-3 p-3">
+                                    <label className="form-label text-orange mb-4">Sort By</label>
+                                    <div className="form-check mb-3">
+                                        <input className="form-check-input" type="radio" name="sort" id="priceLowToHigh" value="priceLowToHigh" onChange={() => setSortType('priceLowToHigh')} />
+                                        <label className="form-check-label" >
+                                            Price: Low to High
+                                        </label>
+                                    </div>
+                                    <div className="form-check mb-3">
+                                        <input className="form-check-input" type="radio" name="sort" id="priceHighToLow" value="priceHighToLow" onChange={() => setSortType('priceHighToLow')} />
+                                        <label className="form-check-label" >
+                                            Price: High to Low
+                                        </label>
+                                    </div>
+                                    <div className="form-check mb-3">
+                                        <input className="form-check-input" type="radio" name="sort" id="ratingLowToHigh" value="ratingLowToHigh" onChange={() => setSortType('ratingLowToHigh')} />
+                                        <label className="form-check-label" >
+                                            Rating: Low to High
+                                        </label>
+                                    </div>
+                                    <div className="form-check mb-3">
+                                        <input className="form-check-input" type="radio" name="sort" id="ratingHighToLow" value="ratingHighToLow" onChange={() => setSortType('ratingHighToLow')} />
+                                        <label className="form-check-label" >
+                                            Rating: High to Low
+                                        </label>
+                                    </div>
+                                </div>
+                            </aside>
+                        </div>
+                        <div className="col-md-9 shadow p-3 ">
+                            <div className="row">
+                                {/* item listing */}
+                                {sortedItems.map(item => (
+                                    <div key={item.id} className="col-md-4 mb-3">
+                                        <div className="card">
+                                            <img src={item.image} alt={item.name} className="card-img-top" style={{ height: '300px', objectFit: 'cover' }} />
+                                            <div className="card-body">
+                                                <h5 className="card-title text-theme-primary fw-bold">{item.name}</h5>
+                                                <span className='text-secondary'>MRP.</span>
+                                                <p className="card-text text-danger">Rs. {item.price}</p>
+                                                <p className="card-text">Rating: <StarRating rating={item.rating} /></p>
+                                                <div className="d-flex justify-content-between align-items-center">
+                                                    <button className="btn bg-theme text-white rounded-0 me-2 w-50">Add to Cart</button>
+                                                    <div className="d-flex align-items-center w-50  " style={{ border: '2px solid grey' }}>
+                                                        <button className="btn  rounded-0 btn-sm me-2 px-3 fw-bold " onClick={() => handleDecrement(item.id)}>-</button>
+                                                        <span className='px-3'>{cart[item.id] || 1}</span>
+                                                        <button className="btn  rounded-0 btn-sm ms-2 px-3 fw-bold" onClick={() => handleIncrement(item.id)}>+</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
