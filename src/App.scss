@@ -1,0 +1,113 @@
+$primary-color : #4516b3;
+$orange-color : rgb(255, 128, 0);
+
+.text-theme-primary {
+    color: $primary-color !important;
+}
+.bg-theme {
+    background-color: $primary-color !important;
+}
+.bg-orange{
+    background-color: $orange-color;
+}
+.text-orange{
+    color: $orange-color !important;
+}
+
+.fs-7 {
+    font-size: 14px !important;
+}
+
+//SearchBar In main Banner
+
+.label {
+    position: relative;
+    display: flex;
+    border: 2px solid #c2c1c1;
+
+    span {
+        position: absolute;
+        top: 53%;
+        right: 1%;
+        transform: translate(-50%, -50%);
+        transition: all 0.3s ease;
+    }
+
+    .input {
+        background-color: transparent;
+        color: #c5c5c5;
+        font-size: 24px;
+    }
+}
+
+//ProductList pages Start ------------------------------------------------------------------------------
+
+.img-h {
+    height: 200px !important;
+}
+
+.product-card {
+    height: 350px; // Set the desired fixed height
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ddd; // Example border, customize as needed
+    margin-bottom: 10px; // Example margin, customize as needed
+
+    .img-h {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            max-height: 150px;
+        }
+    }
+
+    h5 {
+        margin-top: 10px;
+        font-size: 16px;
+        color: $primary-color; 
+    }
+
+    p {
+        margin: 5px 0;
+        color: #6c757d; 
+        font-size: 0.875rem; 
+    }
+
+    .text-secondary {
+        margin: 5px 0;
+        color: #6c757d; 
+        font-size: 0.875rem; 
+    }
+
+    .text-theme-primary {
+        margin: 5px 0;
+        color: $primary-color; 
+        font-size: 0.875rem; 
+    }
+}
+
+//ProductList pages End ------------------------------------------------------------------------------
+
+
+//CategoryList pages Start ------------------------------------------------------------------------------
+
+.roadmap{
+    border: 4px dashed $orange-color;
+    height: 4px;
+
+    span:nth-child(1){
+            margin-left: -19px;
+    }
+    span:nth-child(2){
+            margin-right: -19px;
+    }
+
+
+}
+
+//CategoryList pages End ------------------------------------------------------------------------------
